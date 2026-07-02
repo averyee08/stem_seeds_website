@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiments - STEM Seeds</title>
+    <link rel="icon" type="image/webp" href="images/STEM Seeds logo.webp">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #167116;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: #7bc234;
+            color: white;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+        nav h1 {
+            font-size: 2rem;
+        }
+        .logo {
+            height: 120px;
+            width: auto;
+            margin-right: 0.25rem;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        nav a:hover {
+            opacity: 0.8;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .page-header {
+            background: #3c7b1f;
+            color: white;
+            min-height: 65vh;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding: 4rem 6rem 4rem 5rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        .page-header h2 {
+            color: white;
+            font-size: clamp(3rem, 5vw, 5rem);
+            margin: 0;
+            max-width: 70ch;
+            line-height: 1.05;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+        .page-header h2 .highlight {
+            color: white;
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+        }
+        .page-header h2 .highlight::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -0.08rem;
+            height: 0.5rem;
+            background: #7bc234;
+            z-index: 0;
+            transform-origin: left center;
+        }
+        h2 {
+            color: #167116;
+            margin: 2rem 0 1rem 0;
+        }
+        h3 {
+            color: #4f914f;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        .experiments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .experiment-card {
+            background: #f4f4f4;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #167116;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .experiment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .experiment-card h3 {
+            margin-top: 0;
+        }
+        .experiment-feature {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 2rem;
+            margin: 3.5rem auto;
+            padding: 0;
+            max-width: 940px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .feature-image {
+            flex: 0 0 320px;
+            width: 320px;
+            min-width: 320px;
+            max-width: 320px;
+        }
+        .feature-image img {
+            width: 100%;
+            height: 320px;
+            display: block;
+            object-fit: cover;
+            border-radius: 0;
+        }
+        .feature-copy {
+            flex: 1 1 560px;
+            min-width: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 1rem;
+            box-sizing: border-box;
+        }
+        .feature-copy h2 {
+            color: #31700f;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -0.05em;
+            margin: 0 0 1rem 0;
+            max-width: none;
+        }
+        .feature-copy h3 {
+            color: #167116;
+            font-size: 1.25rem;
+            margin: 0 0 1rem 0;
+            font-weight: 700;
+        }
+        .feature-copy ul {
+            list-style: disc inside;
+            margin: 0;
+            padding: 0;
+            color: #167116;
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+        .feature-copy ul li {
+            margin-bottom: 1rem;
+        }
+        @media (max-width: 900px) {
+            .experiment-feature {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+            .feature-image,
+            .feature-copy {
+                max-width: 100%;
+                width: 100%;
+            }
+            .feature-copy { padding-left: 0; }
+            .feature-image img { height: auto; }
+        }
+        .cta-button {
+            background: #7bc234;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 0;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            background: #69a828;
+        }
+        footer {
+            background: #7bc234;
+            color: white;
+            padding: 4rem 2rem;
+            margin-top: auto;
+        }
+        .footer-inner {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            opacity: 0.9;
+        }
+        /* Ensure all footer text is white */
+        footer, footer .footer-inner, footer .footer-column, footer .footer-column h3, footer .footer-column p, footer .footer-column a, footer .footer-bottom {
+            color: #ffffff ;
+        }
+        .more-coming {
+            text-align: center;
+            color: #167116;
+            font-size: 3rem;
+            margin-top: 1rem;
+            margin-bottom: 4rem;
+            font-weight: 500;
+        }
+        .more-coming .highlight-green {
+            color: #7bc234;
+            font-weight: 500;
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+        }
+        .more-coming .highlight-green::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -0.12rem;
+            height: 0.38rem;
+            background: #7bc234;
+            z-index: 0;
+            transform-origin: left center;
+        }
+        .more-coming-section {
+            padding-bottom: 6rem;
+        }
+        .footer-column a {
+            color: white;
+            opacity: 0.95;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+        .footer-column a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            opacity: 0.9;
+        }
+        .more-coming {
+            text-align: center;
+            color: #167116;
+            font-size: 3rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+        .more-coming .highlight-green {
+            color: #7bc234;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div style="display: flex; align-items: center;">
+                <img src="images/STEM Seeds logo.webp" alt="STEM Seeds Logo" class="logo">
+            </div>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="our_mission.html">Our Mission</a></li>
+                <li><a href="experiments.html">Experiments</a></li>
+                <li><a href="who_we_are.html">Who We Are</a></li>
+                <li><a href="locations.html">Locations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h2>Planting seeds of <span class="highlight">STEM</span> one experiment at a time.</h2>
+    </section>
+
+    <section class="experiment-feature">
+        <div class="feature-copy">
+            <h2>What’s the matter with slime?</h2>
+            <h3>Learning Points:</h3>
+            <ul>
+                <li>The three states of matter through the ingredients of slime</li>
+                <li>How slime comes together</li>
+                <li>A new state of matter: a Non-Newtonian fluid</li>
+            </ul>
+        </div>
+        <div class="feature-image">
+            <img src="images/experiments_1.webp" alt="Slime experiment">
+        </div>
+    </section>
+
+    <section class="experiment-feature">
+        <div class="feature-copy">
+            <h2>The Sweetness of Engineering</h2>
+            <h3>Learning Points:</h3>
+            <ul>
+                <li>How a triangle is the strongest shape</li>
+                <li>Working together as a team</li>
+                <li>Thinking as an engineer</li>
+                <li>The difference between 2-dimensional figures and 3-dimensional figures</li>
+            </ul>
+        </div>
+        <div class="feature-image">
+            <img src="images/experiments_2.webp" alt="Engineering experiment">
+        </div>
+    </section>
+
+    <section class="experiment-feature">
+        <div class="feature-copy">
+            <h2>Build-A-Bot</h2>
+            <h3>Learning Points:</h3>
+            <ul>
+                <li>How to logically think about pro’s and con’s</li>
+                <li>How to work together as a group</li>
+                <li>Thinking as an engineer</li>
+            </ul>
+        </div>
+        <div class="feature-image">
+            <img src="images/experiments_3.webp" alt="Build-A-Bot experiment">
+        </div>
+    </section>
+
+    <section class="experiment-feature">
+        <div class="feature-copy">
+            <h2>What Makes a Star?</h2>
+            <h3>Learning Points:</h3>
+            <ul>
+                <li>The elements that make up a star</li>
+                <li>How multiple components can make up one thing</li>
+                <li>What a supernova is</li>
+                <li>What white matter is</li>
+                <li>The state of matter of stars</li>
+            </ul>
+        </div>
+        <div class="feature-image">
+            <img src="images/experiments_4.webp" alt="What Makes a Star experiment">
+        </div>
+    </section>
+
+    <section class="experiment-feature">
+        <div class="feature-copy">
+            <h2>TAG! You’re Infected</h2>
+            <h3>Learning Points:</h3>
+            <ul>
+                <li>How infections start</li>
+                <li>How infections spread</li>
+                <li>How to end the spreading of an infection</li>
+                <li>Precautions in a pandemic</li>
+            </ul>
+        </div>
+        <div class="feature-image">
+            <img src="images/experiments_5.webp" alt="TAG! You’re Infected experiment">
+        </div>
+    </section>
+    
+    <section class="more-coming-section">
+        <div class="container">
+            <p class="more-coming">And there's <span class="highlight-green">even more</span> ...</p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-inner">
+            <div class="footer-column">
+                <h3>Khadicha Kosimjonova</h3>
+                <a href="mailto:stemseeds.pgh@gmail.com">stemseeds.pgh@gmail.com</a>
+                <a href="tel:4124171442">412-417-1442</a>
+            </div>
+            <div class="footer-column follow">
+                <h3>Follow</h3>
+                <a href="https://www.instagram.com/stemseeds.pgh/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://www.youtube.com/@STEM-Seeds" target="_blank" rel="noopener noreferrer">Youtube</a>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 STEM Seeds.</div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who We Are - STEM Seeds</title>
+    <link rel="icon" type="image/webp" href="images/STEM Seeds logo.webp">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #167116;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: #7bc234;
+            color: white;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+        nav h1 {
+            font-size: 2rem;
+        }
+        .logo {
+            height: 120px;
+            width: auto;
+            margin-right: 0.25rem;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        nav a:hover {
+            opacity: 0.8;
+        }
+        .section-image {
+            display: block;
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            margin: 2rem auto 0;
+            border-radius: 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .page-header {
+            background: linear-gradient(135deg, #167116 0%, #4f914f 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .page-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        h2 {
+            color: #167116;
+            margin: 2rem 0 1rem 0;
+        }
+        h3 {
+            color: #4f914f;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .team-card {
+            background: #f4f4f4;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #167116;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .team-card h3 {
+            margin-top: 0;
+        }
+        .cta-button {
+            background: #167116;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            background: #0f5a0f;
+        }
+        footer {
+            background: #7bc234;
+            color: white;
+            padding: 4rem 2rem;
+            margin-top: auto;
+        }
+        .footer-inner {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .footer-column {
+            flex: 1 1 280px;
+            min-width: 280px;
+        }
+        .footer-column.follow {
+            text-align: right;
+        }
+        .footer-column.follow a {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .footer-column h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            color: white;
+        }
+        .footer-column p,
+        .footer-column a {
+            color: white;
+            opacity: 0.95;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+        .footer-column a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div style="display: flex; align-items: center;">
+                <img src="images/STEM Seeds logo.webp" alt="STEM Seeds Logo" class="logo">
+            </div>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="our_mission.html">Our Mission</a></li>
+                <li><a href="experiments.html">Experiments</a></li>
+                <li><a href="who_we_are.html">Who We Are</a></li>
+                <li><a href="locations.html">Locations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section style="background-color: #9cd564; color: #7db04a; padding: 3rem 2rem; text-align: center;">
+        <h2 style="color: #ffffff; margin: 2; font-size: 3rem; font-weight: 500;">Students, for students.</h2>
+    </section>
+
+    <section class="section-block" style="background: white; padding: 3rem 2rem; text-align: center;">
+        <img src="images/khadicha.webp" alt="Founder Khadicha Kosimjonova" class="section-image">
+        <p style="color: #167116; font-size: 1.75rem; margin-top: 1.5rem;">Founder: Khadicha Kosimjonova</p>
+    </section>
+
+    <section class="section-block" style="background: white; padding: 3rem 2rem; text-align: center;">
+        <img src="images/lamar.webp" alt="Vice President Lamar Abushaban" class="section-image">
+        <p style="color: #167116; font-size: 1.75rem; margin-top: 1.5rem;">Vice President: Lamar Abushaban</p>
+    </section>
+
+    <section class="section-block" style="background: white; padding: 3rem 2rem; text-align: center;">
+        <img src="images/husniya.webp" alt="Science Experiment Creator Husniya Nurmuhammad" class="section-image">
+        <p style="color: #167116; font-size: 1.75rem; margin-top: 1.5rem;">Science Experiment Creator: Husniya Nurmuhammad</p>
+    </section>
+
+    <section style="background: #2c522d; color: white; padding: 15rem 8rem; text-align: center;">
+        <p style="font-size: 4rem; margin: 2;">View our Instagram for the rest of the board!</p>
+        <a href="https://www.instagram.com/stemseeds.pgh/" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: 2rem; padding: 1rem 2rem; background: white; color: #167116; font-weight: 500; text-decoration: none;">Instagram</a>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-inner">
+            <div class="footer-column">
+                <h3>Khadicha Kosimjonova</h3>
+                <a href="mailto:stemseeds.pgh@gmail.com">stemseeds.pgh@gmail.com</a>
+                <a href="tel:4124171442">412-417-1442</a>
+            </div>
+            <div class="footer-column follow">
+                <h3>Follow</h3>
+                <a href="https://www.instagram.com/stemseeds.pgh/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://www.youtube.com/@STEM-Seeds" target="_blank" rel="noopener noreferrer">Youtube</a>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 STEM Seeds.</div>
+    </footer>
+</body>
+</html>
